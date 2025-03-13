@@ -9,17 +9,17 @@ import 'firebase_options.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const Test2());
+  runApp(const Test3());
 }
 
-class Test2 extends StatefulWidget {
-  const Test2({super.key});
+class Test3 extends StatefulWidget {
+  const Test3({super.key});
 
   @override
-  State<Test2> createState() => _Test2State();
+  State<Test3> createState() => _Test2State();
 }
 
-class _Test2State extends State<Test2> {
+class _Test2State extends State<Test3> {
   @override
   void initState() {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
@@ -41,7 +41,7 @@ class _Test2State extends State<Test2> {
         Register.routeName: (_) => Register(),
         Home.routeName: (_) => Home(),
       },
-      home: FirebaseAuth.instance.currentUser == null ? Login() : Home(),
+      home: Login(),
     );
   }
 }
