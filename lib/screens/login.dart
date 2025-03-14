@@ -1,16 +1,22 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:test3/screens/home.dart';
 import 'package:test3/screens/signup.dart';
 
 import '../widgets/customButton.dart';
 import '../widgets/textFormField.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   static const String routeName = "Login";
 
   Login({super.key});
 
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   TextEditingController email = TextEditingController();
 
   TextEditingController password = TextEditingController();
@@ -80,17 +86,21 @@ class Login extends StatelessWidget {
                               email: email.text,
                               password: password.text,
                             );
+                        Navigator.pushReplacementNamed(context, Home.routeName);
                       } on FirebaseAuthException catch (e) {
-                        if (e.code == 'user-not-found') {
+                        if (e.code == 'invalid-email') {
+                          print("No user found for that email");
                           AwesomeDialog(
                             context: context,
                             dialogType: DialogType.info,
                             animType: AnimType.rightSlide,
+                            btnCancelOnPress: () {},
+                            btnOkOnPress: () {},
                             title: 'Email',
                             desc: 'No user found for that email.',
                           ).show();
                           print('No user found for that email.');
-                        } else if (e.code == 'wrong-password') {
+                        } else if (e.code == 'invalid-credential') {
                           print('Wrong password provided for that user.');
                           AwesomeDialog(
                             context: context,

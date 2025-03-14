@@ -41,7 +41,7 @@ class _Test2State extends State<Test3> {
         Register.routeName: (_) => Register(),
         Home.routeName: (_) => Home(),
       },
-      home: Login(),
+      home: FirebaseAuth.instance.currentUser == null ? Login() : Home(),
     );
   }
 }

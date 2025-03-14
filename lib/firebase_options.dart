@@ -28,7 +28,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -47,28 +50,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCtmSSNIxw3-dnJzF64bpECJsSL-rkWnuc',
-    appId: '1:1026587875507:android:359d75b8ec7fb84a47f8c6',
-    messagingSenderId: '1026587875507',
-    projectId: 'test2-4446b',
-    storageBucket: 'test2-4446b.firebasestorage.app',
+    apiKey: 'AIzaSyBK4AwqGc5KSJZrW8Z7oy1wHI_qo0FqSoI',
+    appId: '1:795034091538:android:00c59ec2f2d4b9d1b798cb',
+    messagingSenderId: '795034091538',
+    projectId: 'test3b-25903',
+    storageBucket: 'test3b-25903.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD6R5ODBAIpHGjG8urMbJ58tOyBI0-dmFw',
-    appId: '1:1026587875507:ios:55c63c52af5a6cd647f8c6',
-    messagingSenderId: '1026587875507',
-    projectId: 'test2-4446b',
-    storageBucket: 'test2-4446b.firebasestorage.app',
-    iosBundleId: 'com.example.test2',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyD6R5ODBAIpHGjG8urMbJ58tOyBI0-dmFw',
-    appId: '1:1026587875507:ios:55c63c52af5a6cd647f8c6',
-    messagingSenderId: '1026587875507',
-    projectId: 'test2-4446b',
-    storageBucket: 'test2-4446b.firebasestorage.app',
-    iosBundleId: 'com.example.test2',
+    apiKey: 'AIzaSyBd1M2ZI4Me9sxvZ8cGPAxqLNkNbZTSd3E',
+    appId: '1:795034091538:ios:c0ee022ea58bdeefb798cb',
+    messagingSenderId: '795034091538',
+    projectId: 'test3b-25903',
+    storageBucket: 'test3b-25903.firebasestorage.app',
+    iosBundleId: 'com.example.test3',
   );
 }
